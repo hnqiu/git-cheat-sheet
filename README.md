@@ -1,4 +1,7 @@
 # Using Git
+
+> This cheat-sheet is also available on [my website](https://hnqiu.github.io/cheatsheets/2019/05/19/using-git.html).
+
 Git is a distributed version control system for tracking code histories. If you are using MacOS or Ubuntu, Git should have been installed by default, otherwise follow the instructions on [git-scm](https://git-scm.com/downloads) to install it.  
 
 For complete beginners I would recommend [a Git tutorial on Corey Schafer's Youtube channel](https://www.youtube.com/watch?v=HVsySz-h9r4). That's how I first learnt Git. 
@@ -194,8 +197,8 @@ Command | Description
 `git reset --hard <commitID>`           | roll back local repo to the specified version and remove previous commits
 `git push origin [branchname] --force`  | force push local repo to remote
 `git revert <commitID>`                 | roll back files and create commit to record rollback history
-`git checkout <commitID> -- [file]`     | revert a specified file to the commited reversion and stage changes (not commited)
-`git checkout <commitID>~1 -- [file]`   | revert a file to the first parent of the specified commit and stage changes
+`git checkout <commitID> [file]`     | revert a specified file to the commited reversion and stage changes (not commited)
+`git checkout <commitID>~1 [file]`   | revert a file to the first parent of the specified commit and stage changes
 
 ### Submodule 
 Command | Description 
