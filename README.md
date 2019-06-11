@@ -190,7 +190,7 @@ Command | Description
 `git diff --staged`                     | show changes between the staging area and last commit
 `git diff <commitID>`                   | compare with the specified commit
 `git diff <oldCommit>..<newCommit>`     | compare between two commits
-`git commit --amend`                    | open editor to change the most recent commit message (staged changes will be commited as well)
+`git commit --amend`                    | combine staged changes with the previous commit (commit message will be opened) <br> `amend` will create an entirely new commit, instead of modifying the old commit
 `git commit --amend -m "new msg"`       | change the most recent commit message to "new msg"
 `git reset HEAD~`                       | undo the last commit and leave changes unstaged (`HEAD` will be copied to `.git/ORIG_HEAD`)
 `git reset --soft HEAD~`                | undo the last commit and leave changes staged
@@ -216,6 +216,13 @@ Command | Description
   git reset # unstaged changes since last commit
   git commit --amend -m "new msg" # or git commit --amend
   git push origin [branch] -f # force push commit if that commit was pushed before
+  ```
+- Change the last commit
+  ```sh
+  git commit -m "msg" # commit that needs to be changed
+  # modify files and
+  git add [files] # stage
+  git commit --amend
   ```
 - [Undo the most recent commit](https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git)
   ```sh
