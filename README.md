@@ -58,14 +58,17 @@ Finally, use `set-url` to change the remote url to SSH.
 
 Command | Description
 ------- | :-----------
-`git push` or <br> `git push origin [branchname]`  | push changes to the remote repo <br> `origin` is an alias on the local system for the remote repo
-`git push -u origin [branchname]`               | push changes to the remote repo and associate local branch with the remote repo
-`git push origin --delete [branch]` or <br> `git push origin :[branch]`| delete a remote branch
-`git pull origin [branchname]`                  | pull changes from the remote branch
-`git remote -v` | list remote repos
+`git push` or <br> `git push origin [branchname]` | push changes to the remote repo <br> `origin` is an alias on the local system for the remote repo
+`git push -u origin [branchname]`                 | push changes to the remote repo and associate local branch with the remote repo
+`git push origin --delete [branch]` or <br> `git push origin :[branch]` | delete a remote branch
+`git fetch`                     | fetch updates from remote branches but do not change the local copy
+`git fetch --prune`             | clean outdated branches that do not exist on the remote
+`git pull origin [branchname]`  | pull changes from the remote branch: `fetch` and `merge`
+`git reset origin/master`       | set local repo to match the remote branch (after `git fetch`)
+`git remote -v`                 | list remote repos
 `git remote add origin https://github.com/<user>/[reponame].git`    | connect remote server to local
 `git remote add origin git@github.com:<user>/[reponame].git`        | or use SSH if it is set
-`git remote get-url --all origin`       | get remote's url
+`git remote get-url --all origin`                                   | get remote's url
 `git remote set-url origin git@github.com:<user>/[reponame].git`    | set remote's url with ssh
 `git remote rm origin`      | remove the remote repo `origin`
 `git stash`                 | save the current changes on a stack
@@ -185,11 +188,13 @@ Command | Description
 ------- | :-----------
 `git log`                               | show git log
 `git log --abbrev-commit`               | show git log with abbreviated commit IDs
+`git log --stat`                        | show git log with change stat
 `git show <commitID>`                   | show changes in that commit
 `git diff`                              | show unstaged changes
 `git diff --staged`                     | show changes between the staging area and last commit
 `git diff <commitID>`                   | compare with the specified commit
 `git diff <oldCommit>..<newCommit>`     | compare between two commits
+`git diff --stat <oldCommit>..<newCommit>`  | show change stat (additions & deletions) between the two
 `git commit --amend`                    | combine staged changes with the previous commit (commit message will be opened) <br> `amend` will create an entirely new commit, instead of modifying the old commit
 `git commit --amend -m "new msg"`       | change the most recent commit message to "new msg"
 `git reset HEAD~`                       | undo the last commit and leave changes unstaged (`HEAD` will be copied to `.git/ORIG_HEAD`)
@@ -208,6 +213,11 @@ Command | Description
 `git submodule add <url>`       | add an existing repository as a submodule under current directory
 `git submodule init`            | initialize submodule configuration
 `git submodule update --remote` | fetch and update all submodules
+
+### Others
+Command | Description 
+------- | :-----------
+`git ls-files`  | list files under the current path that are being tracked
 
 
 ## Examples
