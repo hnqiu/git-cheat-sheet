@@ -87,6 +87,7 @@ Command | Description
 `git branch -D [branch]`    | force delete a branch even it is not fully merged
 `git merge [branchname]`    | merge the branch into the current working branch
 `git branch --merged`       | show branches that have been merged into the current branch
+`git rebase [branchname]`   | rewrite the current branch history to follow the commits in the specified branch
 `git cherry-pick <commitID>`| merge changes from a commit
 
 ## Use `hub` from Command-Line
