@@ -87,8 +87,6 @@ Command | Description
 `git branch -D [branch]`    | force delete a branch even it is not fully merged
 `git merge [branchname]`    | merge the branch into the current working branch
 `git branch --merged`       | show branches that have been merged into the current branch
-`git rebase [branchname]`   | rewrite the current branch history to follow the commits in the specified branch
-`git cherry-pick <commitID>`| merge changes from a commit
 
 ## Use `hub` from Command-Line
 
@@ -188,6 +186,7 @@ Syntax | Description
 Command | Description 
 ------- | :-----------
 `git log`                               | show git log
+`git log --oneline`                     | show abbreviated git log in one-line format
 `git log --abbrev-commit`               | show git log with abbreviated commit IDs
 `git log --stat`                        | show git log with change stat
 `git show <commitID>`                   | show changes in that commit
@@ -198,11 +197,16 @@ Command | Description
 `git diff --stat <oldCommit>..<newCommit>`  | show change stat (additions & deletions) between the two
 `git commit --amend`                    | combine staged changes with the previous commit (commit message will be opened) <br> `amend` will create an entirely new commit, instead of modifying the old commit
 `git commit --amend -m "new msg"`       | change the most recent commit message to "new msg"
+`git commit --amend --no-edit`          | commit staged changes to the previous commit without message editing
 `git reset HEAD~`                       | undo the last commit and leave changes unstaged (`HEAD` will be copied to `.git/ORIG_HEAD`)
 `git reset --soft HEAD~`                | undo the last commit and leave changes staged
 `git reset --hard <commitID>`           | roll back local repo to the specified version and remove previous commits
 `git push origin [branchname] --force`  | force push local repo to remote
 `git revert <commitID>`                 | roll back files and create commit to record rollback history
+`git cherry-pick <commitID>`            | merge changes from a commit
+`git rebase [branchname]`               | rewrite the current branch history to follow the commits in the specified branch
+`git rebase -i HEAD~2`                  | rebase specified last commits in interactive mode
+`git rebase --continue`                 | continue with history rebasing in interactive mode
 `git checkout <commitID> [file]`     | revert a specified file to the commited reversion and stage changes (not commited)
 `git checkout <commitID>~1 [file]`   | revert a file to the first parent of the specified commit and stage changes
 
