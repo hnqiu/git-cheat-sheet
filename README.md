@@ -70,10 +70,11 @@ Command | Description
 `git remote add origin git@github.com:<user>/[reponame].git`        | or use SSH if it is set
 `git remote get-url --all origin`                                   | get remote's url
 `git remote set-url origin git@github.com:<user>/[reponame].git`    | set remote's url with ssh
-`git remote rm origin`      | remove the remote repo `origin`
-`git stash`                 | save the current changes on a stack
-`git stash list`            | list stored stashes
-`git stash apply <stash@>`  | reapply the stashed changes
+`git remote rm origin`          | remove the remote repo `origin`
+`git stash`                     | save the current changes on a stack
+`git stash push -m <stash_name>`| stash changes with given name
+`git stash list`                | list stored stashes
+`git stash apply <stash@>`      | reapply the stashed changes
 
 ### Branch & Merge
 Command | Description 
@@ -86,6 +87,7 @@ Command | Description
 `git branch -d [branch]`    | delete a local branch
 `git branch -D [branch]`    | force delete a branch even it is not fully merged
 `git merge [branchname]`    | merge the branch into the current working branch
+`git merge <commitID>`      | merge the change history prior to (including) the specified commit into the current working branch
 `git branch --merged`       | show branches that have been merged into the current branch
 
 ## Use `hub` from Command-Line
@@ -189,6 +191,9 @@ Command | Description
 `git log --oneline`                     | show abbreviated git log in one-line format
 `git log --abbrev-commit`               | show git log with abbreviated commit IDs
 `git log --stat`                        | show git log with change stat
+`git log --author=<name>`               | show git log messages made by specified author
+`git log --grep=<pattern>`              | show git log messages with the specified pattern
+`git log --graph --oneline --all`       | show git log tree in all branches
 `git show <commitID>`                   | show changes in that commit
 `git diff`                              | show unstaged changes
 `git diff --staged`                     | show changes between the staging area and last commit
@@ -201,14 +206,15 @@ Command | Description
 `git reset HEAD~`                       | undo the last commit and leave changes unstaged (`HEAD` will be copied to `.git/ORIG_HEAD`)
 `git reset --soft HEAD~`                | undo the last commit and leave changes staged
 `git reset --hard <commitID>`           | roll back local repo to the specified version and remove previous commits
+`git reset --hard origin/[branch]`      | reset local branch to match the remote branch
 `git push origin [branchname] --force`  | force push local repo to remote
 `git revert <commitID>`                 | roll back files and create commit to record rollback history
 `git cherry-pick <commitID>`            | merge changes from a commit
 `git rebase [branchname]`               | rewrite the current branch history to follow the commits in the specified branch
 `git rebase -i HEAD~2`                  | rebase specified last commits in interactive mode
 `git rebase --continue`                 | continue with history rebasing in interactive mode
-`git checkout <commitID> [file]`     | revert a specified file to the commited reversion and stage changes (not commited)
-`git checkout <commitID>~1 [file]`   | revert a file to the first parent of the specified commit and stage changes
+`git checkout <commitID> [file]`        | revert a specified file to the committed reversion and stage changes (not committed)
+`git checkout <commitID>~1 [file]`      | revert a file to the first parent of the specified commit and stage changes
 
 ### Submodule 
 Command | Description 
